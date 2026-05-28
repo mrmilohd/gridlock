@@ -1,0 +1,43 @@
+=========================================
+GRIDLOCK DATASET METADATA & CLEANING STATS
+=========================================
+
+1. DATA TYPES OVERVIEW
+-----------------------------------------
+geohash:              str
+day:                int64
+timestamp:            str
+demand:           float64
+RoadType:             str
+NumberofLanes:      int64
+LargeVehicles:        str
+Landmarks:            str
+Temperature:      float64
+Weather:              str
+
+2. CATEGORICAL CLASSES COUNT
+-----------------------------------------
+geohash: 1249 classes (e.g., ['qp02z1', 'qp02zt', 'qp08bj', 'qp08gt', 'qp02zq'])
+timestamp: 96 classes (e.g., ['0:0', '0:15', '0:30', '0:45', '1:0']) - 15-minute intervals
+RoadType: 3 classes (['Residential', 'Street', 'Highway'])
+LargeVehicles: 2 classes (['Not Allowed', 'Allowed'])
+Landmarks: 2 classes (['No', 'Yes'])
+Weather: 5 classes (['Sunny', 'Rainy', 'Foggy', 'Snowy', 'Cloudy'])
+
+3. MISSING VALUE IMPUTATION STATISTICS
+-----------------------------------------
+OVERALL SUCCESS RATE:
+All 3,892 missing values were successfully filled (100% success rate).
+
+ROADTYPE RULES (600 total missing):
+RT-1: geohash mode: 600
+
+TEMPERATURE RULES (2495 total missing):
+TM-1: geohash+day+hour median: 2223
+TM-2: geohash+hour median: 194
+TM-3: geohash median: 78
+
+WEATHER RULES (797 total missing):
+WE-1: geohash+day mode: 795
+WE-3: temperature inference: 1
+WE-2: geohash mode: 1
